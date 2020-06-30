@@ -10,13 +10,18 @@ class App extends Component {
       {id: 2, title: "Second Todo", content: "Call Bianca!", urgent: true},
       {id: 3, title: "Third Todo", content: "Cook Dinner!", urgent: false}
     ]
+  } 
+
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter(todo => todo.id !== id) 
+    this.setState({ todos })
   }
 
   render() {
   return (
     <main>
       <h1>Todo App</h1>
-      <TodoList todos={this.state.todos}/>
+      <TodoList todos={this.state.todos} deleteTodo={this.deleteTodo} />
     </main>
   ); 
   }
