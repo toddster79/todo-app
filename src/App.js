@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm'
 
 class App extends Component { 
 
@@ -21,6 +22,7 @@ class App extends Component {
   return (
     <main>
       <h1>Todo App</h1>
+      <TodoForm />
       <TodoList todos={this.state.todos} deleteTodo={this.deleteTodo} />
     </main>
   ); 
