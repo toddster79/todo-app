@@ -18,6 +18,10 @@ class App extends Component {
   deleteTodo = (id) => {
     const todos = this.state.todos.filter(todo => todo.id !== id) 
     this.setState({ todos })
+
+    fetch(`http://localhost:3000/api/v1/todos/${id}`, {
+      method: "DELETE"
+    })
   } 
 
   addTodo = (newTodo) => {
