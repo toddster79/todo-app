@@ -27,11 +27,20 @@ class App extends Component {
   addTodo = (newTodo) => {
     this.setState({
       todos: [...this.state.todos, newTodo]
-    }) 
+    })  
+
+    fetch('http://localhost:3000/api/v1/todos', {
+      mehod: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newTodo)
+    })
   }
 
 
-  render() {
+  render() { 
+    console.log(this.state)
   return (
     <main>
       <h1>Todo App</h1>
