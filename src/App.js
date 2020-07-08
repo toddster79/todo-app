@@ -6,13 +6,14 @@ import TodoForm from './components/TodoForm'
 class App extends Component { 
 
   state = {
-    count: 3,
-    todos: [
-      {id: 1, title: "First Todo", content: "I have something todo!", urgent: true},
-      {id: 2, title: "Second Todo", content: "Call Bianca!", urgent: true},
-      {id: 3, title: "Third Todo", content: "Cook Dinner!", urgent: false}
-    ]
-  } 
+    todos: []
+  }  
+
+  componentDidMount() {
+    fetch('http://localhost:3000/api/v1/todos')
+    .then(response => response.json())
+    .then(todos => this.setState({todos}))
+  }
 
   deleteTodo = (id) => {
     const todos = this.state.todos.filter(todo => todo.id !== id) 
@@ -21,9 +22,10 @@ class App extends Component {
 
   addTodo = (newTodo) => {
     this.setState({
-      todos: [...this.state.todos, {...newTodo, id: this.state.count+1}]
-    })
+      todos: [...this.state.todos, newTodo]
+    }) 
   }
+
 
   render() {
   return (
