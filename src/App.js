@@ -30,7 +30,7 @@ class App extends Component {
     })  
 
     fetch('http://localhost:3000/api/v1/todos', {
-      mehod: "POST",
+      method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
