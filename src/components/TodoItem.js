@@ -18,6 +18,9 @@ export default ({id, title, content, urgent, deleteTodo}) => {
     )
 
     return(
-       
+        <> 
+        {showTodo()}
+        </>
     )
+    
 } 
