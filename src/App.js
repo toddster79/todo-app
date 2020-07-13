@@ -40,7 +40,6 @@ class App extends Component {
 
 
   render() { 
-    console.log(this.state)
   return (
     <main>
       <h1>Todo App</h1>
